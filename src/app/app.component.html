@@ -10,7 +10,7 @@
     <modal #componentInsideModal>
       <ng-template #modalHeader><h2>Component inside modal</h2></ng-template>
       <ng-template #modalBody>
-        <app-modal-content (onAnswer)="onAnswer($event)" [closeModal]="componentInsideModal.close" ></app-modal-content>
+        <app-modal-content (onAnswer)="onAnswer($event)"></app-modal-content>
       </ng-template>
       <ng-template #modalFooter></ng-template>
     </modal>
