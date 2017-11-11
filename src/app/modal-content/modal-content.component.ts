@@ -11,9 +11,10 @@ export class ModalContentComponent implements OnInit, OnDestroy {
   @Input('isMultiSelection') isMultiSelection: boolean = false;
   @Output('onAnswer') onAnswer = new EventEmitter<string>();
 
-  public choosenAnswers: {answer: string, value: string}[] = [];
+  public chosenAnswers: {answer: string, value: string}[] = [];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     /* tslint:disable */

@@ -1,9 +1,11 @@
 <div>
   <div *ngFor="let ans of answers">
-    <!--[ngStyle]="'background-color': isMultiSelection && choosenAnswers.indexOf(ans.value) > -1 ? 'blue' ? null"-->
     <button
-      (click)="isMultiSelection ? choosenAnswers.push(ans.value): onAnswer.emit(ans.value)">{{ans.answer}}
+      [ngStyle]="{'background-color': chosenAnswers.indexOf(ans.value) > -1 ? '#5c6baf' : '#fff' }"
+      (click)="isMultiSelection ?
+      (chosenAnswers.indexOf(ans.value) > -1 ? chosenAnswers.splice(chosenAnswers.indexOf(ans.value), 1) : chosenAnswers.push(ans.value))
+        : onAnswer.emit(ans.value)">{{ans.answer}}
     </button>
   </div>
-  <button *ngIf="isMultiSelection" (click)="onAnswer.emit(choosenAnswers)">FINISH</button>
+  <button *ngIf="isMultiSelection" (click)="onAnswer.emit(chosenAnswers)">FINISH</button>
 </div>
