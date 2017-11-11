@@ -8,7 +8,12 @@ import {ModalComponent} from "angular-custom-modal";
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
-  @ViewChild('componentInsideModal') componentInsideModal: ModalComponent;
+  @ViewChild('componentInsideModal') public componentInsideModal: ModalComponent;
+
+  onAnswer(answer) {
+    console.log(answer);
+    this.componentInsideModal.close();
+  }
 
   openFromComponent() {
     this.componentInsideModal.open();
