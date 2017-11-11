@@ -1,4 +1,5 @@
-import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {flatMap} from "tslint/lib/utils";
 
 @Component({
   selector: 'app-modal-content',
@@ -6,7 +7,11 @@ import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core'
   styleUrls: ['./modal-content.component.scss']
 })
 export class ModalContentComponent implements OnInit, OnDestroy {
+  @Input('answers') answers: {answer: string, value: string} [] = [];
+  @Input('isMultiSelection') isMultiSelection: boolean = false;
   @Output('onAnswer') onAnswer = new EventEmitter<string>();
+
+  public choosenAnswers: {answer: string, value: string}[] = [];
 
   constructor() { }
 
